@@ -21,6 +21,31 @@
   <!-- Custom styles for this template -->
   <link href="css/resume.min.css" rel="stylesheet">
 
+<style>
+ #hintbox{
+    display:none;
+    position: absolute;
+    font-size: 12 px;
+    background-color: #161616;
+    color: #fff;
+    border: 1px solid red;
+    padding: 8px;
+    border-radius:5px;
+  }        
+</style>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+$(document).ready(function() {
+ $('.hover').mousemove(function(e){ 
+       var hovertext = $(this).attr('hinttext');  
+         $('#hintbox').text(hovertext).show();
+    $('#hintbox').css('top',e.clientY+15).css('left',e.clientX+15);})
+     .mouseout(function(){
+    $('#hintbox').hide();
+ });
+}); 
+</script>
+	
 </head>
 
 <body id="page-top">
@@ -80,7 +105,8 @@
           <a href="https://github.com/prav24">
             <i class="fab fa-github"></i>
           </a>
-	 <a href="mailto:ipraveen.tech@gmail.com">
+	<div id="hintbox"></div>
+	 <a href="mailto:ipraveen.tech@gmail.com" class="hover" hinttext="Click to submit">
             <i class="fas fa-at"></i>
           </a>	
 	 <a href="https://1drv.ms/b/s!ArZjcoO0ZLzDgaY8DrzStTQT412MWA?e=GRLerG">
